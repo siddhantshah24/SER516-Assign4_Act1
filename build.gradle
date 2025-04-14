@@ -26,10 +26,19 @@ tasks.named('test') {
 }
 
 tasks.register('testFast', Test) {
-	useJUnitPlatform() //
-	testClassesDirs = sourceSets.test.output.classesDirs
-	classpath = sourceSets.test.runtimeClasspath
-	filter {
-		includeTestsMatching 'edu.asu.amexgi.rest.grocery.controllers.GroceryApi2ApplicationTests'
-	}
+    useJUnitPlatform()
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    filter {
+        includeTestsMatching 'edu.asu.amexgi.rest.grocery.controllers.GroceryApi2ApplicationTests'
+    }
+}
+
+tasks.register('testSlow', Test) {
+    useJUnitPlatform()
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    filter {
+        includeTestsMatching 'edu.asu.amexgi.rest.grocery.controllers.GroceryControllerTest2'
+    }
 }
